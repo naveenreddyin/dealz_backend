@@ -1,7 +1,11 @@
-@(message: String, myform: Form[_])
+@(message: String, form: Form[(String, String)])
 
 @main(message) {
 
-         @myform
+         @helper.form(action = routes.Application.addCompany){
+             @helper.inputText(form("name"))
+             @helper.inputText(form("address"))
+             <button>Submit</button>
+         }
 
 }
