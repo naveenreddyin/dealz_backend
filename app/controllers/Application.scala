@@ -11,8 +11,12 @@ object Application extends Controller {
     Ok(views.html.index("Your new application is ready...."))
   }
 
-  def addCompany = Action {
+  def company = Action {
     Ok(views.html.addcompany("Please register your company.", addCompanyForm))
+  }
+
+  def saveCompany = Action{
+    Ok("success")
   }
 
   def addCampaign = TODO
