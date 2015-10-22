@@ -1,5 +1,6 @@
 package assets
 
+import models.Company
 import play.api.data._
 import play.api.data.Forms._
 
@@ -9,8 +10,11 @@ import play.api.data.Forms._
 
 object getForms {
 
-  def addCompanyForm = Form(tuple("name" -> nonEmptyText,
-    "address" -> nonEmptyText))
+  def CompanyForm = Form(mapping(
+  "id" -> number,
+  "name" -> text,
+  "address" -> text
+  )(Company.apply)(Company.unapply _))
 
 }
 

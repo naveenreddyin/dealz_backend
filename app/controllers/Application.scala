@@ -1,15 +1,15 @@
 package controllers
 
+import models.{CompanyTable}
 import play.api._
 import play.api.mvc._
-import scala.slick.driver.MySQLDriver.simple._
 
 import assets.getForms._
-
-import scala.slick.jdbc.meta.MTable
+import play.api.db.slick._
+import play.api.db.slick.Config.driver.simple._
 
 object Application extends Controller {
-  // The query interface for the Suppliers table
+  val companyTable = TableQuery[CompanyTable]
 
   def index = Action {
 
@@ -17,13 +17,21 @@ object Application extends Controller {
   }
 
   def company = Action {
-    Ok(views.html.addcompany("Please register your company.", addCompanyForm))
+    Ok(views.html.addcompany("Please register your company.", CompanyForm))
   }
 
-  def saveCompany = Action{ implicit request =>
-    val (name, address) = addCompanyForm.bindFromRequest.get
-    Logger.debug(name)
-    Ok("success")
+  def saveCompany = DBAction { implicit request =>
+    CompanyForm.bindFromRequest.fold(
+    formWithErrors => {
+      BadRequest("something wrong."+ formWithErrors)
+    },
+    Company => {
+      val insertCompany = companyTable.insert(Company)
+      Ok("success")
+    }
+    )
+
+
   }
 
   def addCampaign = TODO

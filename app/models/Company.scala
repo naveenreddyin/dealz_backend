@@ -11,7 +11,7 @@ case class Company(cid: Int, name: String, address: String)
  */
 class CompanyTable(tag: Tag) extends Table[Company](tag, "Company") {
   def cid = column[Int]("CID", O.AutoInc, O.PrimaryKey)
-  def name = column[String]("name", O.PrimaryKey)
+  def name = column[String]("name", O.NotNull)
   def address = column[String]("address", O.NotNull)
 
   def * = (cid, name, address) <> (Company.tupled, Company.unapply _)
