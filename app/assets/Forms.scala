@@ -1,6 +1,5 @@
 package assets
 
-import models.AddCompany
 import play.api.data._
 import play.api.data.Forms._
 
