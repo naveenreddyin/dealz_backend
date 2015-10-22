@@ -1,0 +1,13 @@
+New log file opened at Thu Oct 22 15:39:54 CEST 2015 by 27210@naveen-Precision-T1650
+Taking next connection to: 42377
+New client attempting to connect on port: 58500-42377
+  Address = /127.0.1.1:42377
+This client on port 58500 has uuid 2b8c13cc-3d19-4955-9855-4a0c06e79f42 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-2b8c13cc-3d19-4955-9855-4a0c06e79f42
+Taking next connection to: 42377
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 27210@naveen-Precision-T1650 logs at Thu Oct 22 15:42:54 CEST 2015, goodbye.
