@@ -3,8 +3,22 @@
 @main(message) {
 
          @helper.form(action = routes.Application.saveCompany){
-             @helper.inputText(form("name"))
-             @helper.inputText(form("address"))
+
+             <fieldset>
+             @helper.inputText(
+                 form("name"),
+                 '_label -> "Name",
+                 '_help -> "")
+             </fieldset>
+
+             <fieldset>
+             @helper.inputText(
+                 form("address"),
+                 '_label -> "Address",
+                 '_help -> "")
+
+             </fieldset>
+
              <button>Submit</button>
          }
 
