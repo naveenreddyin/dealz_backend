@@ -27,7 +27,7 @@ object Application extends Controller {
     },
     Company => {
       val insertCompany = companyTable.insert(Company)
-      Ok("success")
+      Redirect(routes.Application.company())
     }
     )
 
