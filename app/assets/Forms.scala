@@ -11,10 +11,14 @@ import play.api.data.Forms._
 object getForms {
 
   def CompanyForm = Form(mapping(
-  "id" -> ignored(1),
   "name" -> text,
   "address" -> text
-  )(Company.apply)(Company.unapply _))
+  )
+    ((name,address) => Company(None, name, address))
+    ((company: Company) => Some(company.name, company.address))
+  )
 
 }
+
+
 

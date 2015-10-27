@@ -3,11 +3,16 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index
-GET         /company             controllers.Application.company
-POST        /company/save        controllers.Application.saveCompany
+GET         /                     controllers.Application.index
+
+# Companies actions
+GET         /company/             controllers.CompanyController.company
+POST        /company/save/        controllers.CompanyController.saveCompany
+GET         /company/list/        controllers.CompanyController.jsonListAllCompany
+GET         /company/:cid         controllers.CompanyController.showCompany(cid: Long)
+# Campaign actions
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file         controllers.Assets.at(path="/public", file)
 
     
