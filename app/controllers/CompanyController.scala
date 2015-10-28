@@ -35,7 +35,6 @@ object CompanyController extends Controller{
       Company => {
           val insertCompany = companyTable.insert(Company)
           Redirect(routes.CompanyController.company())
-
       }
     )
 
@@ -44,8 +43,8 @@ object CompanyController extends Controller{
 
   def showCompany(cid: Long) = DBAction {
     implicit request =>
-
-      Ok("SDSDF "+cid)
+      val query = companyTable.filter(_.cid === cid).firstOption
+      Ok("result => " + query.get.cid)
   }
 
   def jsonListAllCompany = DBAction { implicit rs =>
